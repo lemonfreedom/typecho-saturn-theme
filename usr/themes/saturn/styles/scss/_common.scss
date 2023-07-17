@@ -1,0 +1,87 @@
+// 选择元素样式
+::selection {
+    color: #fff;
+    background: blue;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(var(--black), 0.2);
+    background-color: rgba(var(--background-color), 1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    background-color: var(--background-color);
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(45deg, hsla(0, 0%, 100%, .4) 25%, transparent 0, transparent 50%, hsla(0, 0%, 100%, .4) 0, hsla(0, 0%, 100%, .4) 75%, transparent 0, transparent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--background-color-2);
+}
+
+.morph-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    .morph {
+        position: relative;
+        height: 100%;
+        fill: var(--background-color-2);
+        flex: none;
+    }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, 'catfont', Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, sans-serif;
+}
+
+// 加载器
+@keyframes loaderAnim {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    z-index: 900;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--background-color);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 10px solid var(--background-color-2);
+        border-left-color: #fff;
+        animation: loaderAnim 0.8s linear infinite forwards;
+    }
+}
