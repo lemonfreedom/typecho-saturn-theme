@@ -1,129 +1,73 @@
 #header {
-    z-index: 1000;
     position: fixed;
-    top: 0;
     width: 100%;
-    height: 4rem;
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-    background-color: var(--background-color);
-    box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .7);
+    backdrop-filter: saturate(180%) blur(20px);
 
-    .header-menu {
-        height: 100%;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .container {
+        height: 56px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        justify-content: space-between;
 
-        .header-menu-item,
-        .header-menu-item a {
-            color: #fff;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: .2rem;
-            cursor: pointer;
-            position: relative;
-            padding: 8px 12px;
+        .header-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
 
-            .decoshape {
-                top: 0;
-                left: 0;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                fill: transparent;
-                z-index: 999;
-                transition: fill .3s ease;
-            }
-
-            >span {
-                z-index: 1000;
-            }
-
-            .material-symbols-rounded {
-                font-size: 20px;
-            }
-
-            .header-menu-item-board {
-                width: 100%;
-                height: 0;
-                z-index: 998;
-                position: fixed;
-                top: 0;
-                left: 0;
-                background-color: var(--background-color-2);
-                box-shadow: 0 0 1rem rgba(0, 0, 0, .3);
-                transition: opacity .3s ease, height .3s ease;
-                border-radius: 0 0 1rem 1rem;
-                box-sizing: border-box;
-                overflow: hidden;
-                opacity: 0;
-
-                // 分类面板
-                .category-list {
-                    list-style: none;
-                    padding: 0;
-
-                    li {
-                        display: block;
-
-                        a {
-                            color: #fff;
-                            line-height: 2rem;
-                            text-decoration: none;
-                            display: inline-flex;
-                            align-items: center;
-                            font-size: 14px;
-                            gap: 8px;
-
-                            &::before {
-                                content: 'keyboard_double_arrow_right';
-                                display: inline-block;
-                                font-family: 'Material Symbols Rounded';
-                                font-size: 20px;
-                            }
-
-                            &:hover {
-                                color: #03b9f1;
-                            }
-                        }
-                    }
-                }
-
-                >.category-list {
-                    display: flex;
-                    gap: 5rem;
-                    padding: 4rem 2rem 2rem;
-
-                    >li {
-                        >a {
-                            &::before {
-                                content: 'workspaces';
-                            }
-                        }
-                    }
-                }
-            }
-
-            &:hover {
-                >span {
-                    color: #03b9f1;
-                }
-
-                .decoshape {
-                    fill: var(--background-color-3);
+            .header-menu-item {
+                .header-menu-item-link {
+                    color: #fff;
+                    font-size: 1.4rem;
+                    position: relative;
+                    z-index: 2;
                 }
 
                 .header-menu-item-board {
-                    height: 30vh;
-                    opacity: 1;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, .8);
+                    backdrop-filter: saturate(180%) blur(20px);
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    transition: opacity .3s ease;
+                    height: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    z-index: 1;
+
+                    >.category-list {
+                        margin-top: 56px;
+                        padding: 20px;
+                    }
                 }
+
+
+                &:hover {
+                    .header-menu-item-board {
+                        height: auto;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .header-right-wrap {
+            position: relative;
+            z-index: 2;
+
+            .header-right-button {
+                height: 40px;
+                line-height: 40px;
+                padding: 0 20px;
+                color: #fff;
+                font-size: 1.4rem;
+                background-color: #d91831;
+                border: 0;
+                cursor: pointer;
             }
         }
     }

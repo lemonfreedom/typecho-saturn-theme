@@ -1,7 +1,29 @@
+@font-face {
+    font-family: 'PingFang SC';
+    font-style: normal;
+    font-weight: 100;
+    src: url("/usr/themes/saturn/fonts/PingFangSC-Regular.woff2") format("woff2");
+}
+
 // 选择元素样式
 ::selection {
     color: #fff;
-    background: blue;
+    background: #1a8dff;
+}
+
+a {
+    color: #1a8dff;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 ::-webkit-scrollbar {
@@ -27,28 +49,8 @@
     background-color: var(--background-color-2);
 }
 
-.morph-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-
-    .morph {
-        position: relative;
-        height: 100%;
-        fill: var(--background-color-2);
-        flex: none;
-    }
-}
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, 'catfont', Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, sans-serif;
+    font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, 'catfont', Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, sans-serif;
 }
 
 // 加载器
@@ -84,4 +86,12 @@ body {
         border-left-color: #fff;
         animation: loaderAnim 0.8s linear infinite forwards;
     }
+}
+
+.container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 22px;
 }
